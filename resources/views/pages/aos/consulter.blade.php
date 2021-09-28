@@ -49,17 +49,6 @@
                                         <a href=""><i class="fas fa-trash-alt"></i></a>
                                     </td>
 
-
-            {{--                            <form action="{{route('aos.destroy', $ao)}}" method ="post">--}}
-            {{--                                @csrf--}}
-            {{--                                @method('delete')--}}
-            {{--                                <td>--}}
-            {{--                                    <a class="btn btn-info" href="{{route('aos.afficher', $ao)}}">Afficher</a>--}}
-            {{--                                    <a class="btn btn-warning" href="{{route('aos.editer', $ao)}}">Editer</a>--}}
-            {{--                                    <input type="submit" class="btn btn-danger" value="supprimer">--}}
-            {{--                                </td>--}}
-            {{--                            </form>--}}
-
                                 </tr>
                             @endforeach
                             </tbody>

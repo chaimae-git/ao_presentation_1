@@ -17,7 +17,12 @@ class ClientSeeder extends Seeder
     {
         DB::table('clients')->delete();
 
-        $clients = array("client 1","client 2","client 3", "client 4");
+        $clients = [
+            "client 1",
+            "client 2",
+            "client 3",
+            "client 4"
+        ];
 
         foreach($clients as $client){
             Client::create(['client'=>$client]);

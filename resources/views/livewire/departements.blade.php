@@ -29,8 +29,8 @@
                             <td>{{$departement->bu->nom}}</td>
                             <td>{{$departement->description}}</td>
                             <td>
-                                <a href="{{route('departements.editer', $departement)}}"><i class="fas fa-edit"></i></a>
-                                <a href="{{--route('departements.supprimer', $departement)--}}"><i class="fas fa-trash-alt"></i></a>
+                                <a href="javascript:void(0)" wire:click="openEditDepartementModal({{$departement->id}})"><i class="fas fa-edit"></i></a>
+                                <a href="javascript:void(0)" wire:click="deleteConfirm({{$departement->id}})"><i class="fas fa-trash-alt"></i></a>
                             </td>
 
                         </tr>
@@ -40,6 +40,7 @@
         </div>
     </div>
     @include('modals.departements.ajouter')
+    @include('modals.departements.editer')
 </div>
 @push('scripts')
     <script>
@@ -53,10 +54,52 @@
             $("#addDepartementModal").find('span.error').html('');
             $("#addDepartementModal").find('form')[0].reset();
             $("#addDepartementModal").modal('hide');
-            alert('departement ajouté avec succée');
-        })
+            Swal.fire(
+                'Added!',
+                'Département has been Added.',
+                'success'
+            )
+        });
+
+        window.addEventListener('closeEditDepartementModal', function(e){
+            $("#editDepartementModal").find('span.error').html('');
+            $("#editDepartementModal").find('form')[0].reset();
+            $("#editDepartementModal").modal('hide');
+            Swal.fire(
+                'Updated!',
+                'Département has been Updated.',
+                'success'
+            )
+        });
 
         window.addEventListener('openEditDepartementModal', function(e){
+            $("#addDepartementModal").find('span.error').html('');
+            $("#editDepartementModal").modal('show');
+        });
+
+        window.addEventListener('swalConfirm', function(e){
+            swal.fire({
+                title:e.detail.title,
+                html:e.detail.html,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                allowOutsideClick:false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('delete', e.detail.id)
+                }
+            });
+        });
+
+        window.addEventListener('deleted', function(e){
+            Swal.fire(
+                'Deleted!',
+                'Département has been deleted.',
+                'success'
+            )
         });
 
         $('#addDepartementModal').modal({backdrop:'static', keyboard:false, show:false});

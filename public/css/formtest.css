@@ -34,6 +34,7 @@
 
 .multi-wizard-step {
     text-align: center;
+    font-size: 18px;
     position: relative;
     display: table-cell;
 }

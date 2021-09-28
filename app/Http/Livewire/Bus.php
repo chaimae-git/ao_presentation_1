@@ -9,7 +9,9 @@ use Livewire\WithPagination;
 class Bus extends Component
 {
     public $nom, $description;
-    public $c_id, $u_nom, $u_description;
+    public $u_id, $u_nom, $u_description;
+
+    protected $listeners = ['delete'];
 
     protected $paginationTheme = 'bootstrap';
 
@@ -18,7 +20,11 @@ class Bus extends Component
         $this->dispatchBrowserEvent('openAddBuModal');
     }
 
-    public function openEditBuModal(){
+    public function openEditBuModal($id){
+        $bu = Bu::find($id);
+        $this->u_nom = $bu->nom;
+        $this->u_description = $bu->description;
+        $this->u_id = $bu->id;
         $this->dispatchBrowserEvent('openEditBuModal');
     }
 
@@ -38,6 +44,38 @@ class Bus extends Component
             $this->dispatchBrowserEvent('closeAddBuModal');
         }
 
+    }
+
+    public function update(){
+        $this->validate([
+            'u_nom'=>'required|unique:bus,nom,'.$this->u_id,
+            'u_description'=>''
+        ]);
+
+        $update = Bu::find($this->u_id)->update([
+            'nom'=>$this->u_nom,
+            'description'=>$this->u_description
+        ]);
+
+        if($update){
+            $this->dispatchBrowserEvent('closeEditBuModal');
+        }
+    }
+
+    public function deleteConfirm($id){
+        $bu = Bu::find($id);
+        $this->dispatchBrowserEvent('swalConfirm', [
+            'title'=>"Are You Sure",
+            'html'=>"You Want To Delete This Bu",
+            'id'=>$id,
+        ]);
+    }
+
+    public function delete($id){
+        $del = Bu::find($id)->delete();
+        if($del){
+            $this->dispatchBrowserEvent('deleted');
+        }
     }
 
     public function render()

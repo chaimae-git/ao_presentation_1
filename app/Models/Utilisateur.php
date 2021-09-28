@@ -12,6 +12,8 @@ class Utilisateur extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function statut():BelongsTo{
         return $this->belongsTo(Statut::class);
     }

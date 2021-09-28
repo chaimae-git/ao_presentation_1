@@ -19,7 +19,7 @@
                                     <option value="{{$bu->id}}" @if((old('bu_id')) && old('bu_id') == $bu->id) {{'selected'}} @endif>{{$bu->nom}}</option>
                                 @endforeach
                             </select>
-                            @error('bu_id') <span class="text-danger">{{$message}}</span> @enderror
+                            @error('bu_id') <span class="error text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label for="nom">Nom</label>

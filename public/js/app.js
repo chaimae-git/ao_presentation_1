@@ -7109,7 +7109,7 @@ function Sizzle( selector, context, results, seed ) {
 		return results;
 	}
 
-	// Try to shortcut find operations (as opposed to filters) in HTML documents
+	// Try to shortcut find operations (as opposed to filters) in HTML Documents
 	if ( !seed ) {
 		setDocument( context );
 		context = context || document;
@@ -7470,7 +7470,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Return early if doc is invalid or already selected
 	// Support: IE 11+, Edge 17 - 18+
 	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-	// two documents; shallow comparisons work.
+	// two Documents; shallow comparisons work.
 	// eslint-disable-next-line eqeqeq
 	if ( doc == document || doc.nodeType !== 9 || !doc.documentElement ) {
 		return document;
@@ -7482,10 +7482,10 @@ setDocument = Sizzle.setDocument = function( node ) {
 	documentIsHTML = !isXML( document );
 
 	// Support: IE 9 - 11+, Edge 12 - 18+
-	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
+	// Accessing iframe Documents after unload throws "permission denied" errors (jQuery #13936)
 	// Support: IE 11+, Edge 17 - 18+
 	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-	// two documents; shallow comparisons work.
+	// two Documents; shallow comparisons work.
 	// eslint-disable-next-line eqeqeq
 	if ( preferredDoc != document &&
 		( subWindow = document.defaultView ) && subWindow.top !== subWindow ) {
@@ -7830,7 +7830,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Calculate position if both inputs belong to the same document
 		// Support: IE 11+, Edge 17 - 18+
 		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-		// two documents; shallow comparisons work.
+		// two Documents; shallow comparisons work.
 		// eslint-disable-next-line eqeqeq
 		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
 			a.compareDocumentPosition( b ) :
@@ -7845,7 +7845,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Choose the first element that is related to our preferred document
 			// Support: IE 11+, Edge 17 - 18+
 			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-			// two documents; shallow comparisons work.
+			// two Documents; shallow comparisons work.
 			// eslint-disable-next-line eqeqeq
 			if ( a == document || a.ownerDocument == preferredDoc &&
 				contains( preferredDoc, a ) ) {
@@ -7854,7 +7854,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: IE 11+, Edge 17 - 18+
 			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-			// two documents; shallow comparisons work.
+			// two Documents; shallow comparisons work.
 			// eslint-disable-next-line eqeqeq
 			if ( b == document || b.ownerDocument == preferredDoc &&
 				contains( preferredDoc, b ) ) {
@@ -7884,12 +7884,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 			ap = [ a ],
 			bp = [ b ];
 
-		// Parentless nodes are either documents or disconnected
+		// Parentless nodes are either Documents or disconnected
 		if ( !aup || !bup ) {
 
 			// Support: IE 11+, Edge 17 - 18+
 			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-			// two documents; shallow comparisons work.
+			// two Documents; shallow comparisons work.
 			/* eslint-disable eqeqeq */
 			return a == document ? -1 :
 				b == document ? 1 :
@@ -7928,7 +7928,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Otherwise nodes in our document sort first
 			// Support: IE 11+, Edge 17 - 18+
 			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-			// two documents; shallow comparisons work.
+			// two Documents; shallow comparisons work.
 			/* eslint-disable eqeqeq */
 			ap[ i ] == preferredDoc ? -1 :
 			bp[ i ] == preferredDoc ? 1 :
@@ -7975,7 +7975,7 @@ Sizzle.contains = function( context, elem ) {
 	// Set document vars if needed
 	// Support: IE 11+, Edge 17 - 18+
 	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-	// two documents; shallow comparisons work.
+	// two Documents; shallow comparisons work.
 	// eslint-disable-next-line eqeqeq
 	if ( ( context.ownerDocument || context ) != document ) {
 		setDocument( context );
@@ -7988,7 +7988,7 @@ Sizzle.attr = function( elem, name ) {
 	// Set document vars if needed
 	// Support: IE 11+, Edge 17 - 18+
 	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-	// two documents; shallow comparisons work.
+	// two Documents; shallow comparisons work.
 	// eslint-disable-next-line eqeqeq
 	if ( ( elem.ownerDocument || elem ) != document ) {
 		setDocument( elem );
@@ -9027,7 +9027,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 				// Support: IE 11+, Edge 17 - 18+
 				// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-				// two documents; shallow comparisons work.
+				// two Documents; shallow comparisons work.
 				// eslint-disable-next-line eqeqeq
 				outermostContext = context == document || context || outermost;
 			}
@@ -9041,7 +9041,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 					// Support: IE 11+, Edge 17 - 18+
 					// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-					// two documents; shallow comparisons work.
+					// two Documents; shallow comparisons work.
 					// eslint-disable-next-line eqeqeq
 					if ( !context && elem.ownerDocument != document ) {
 						setDocument( elem );
@@ -16629,7 +16629,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 // Support: Safari 8 only
-// In Safari 8 documents created via document.implementation.createHTMLDocument
+// In Safari 8 Documents created via document.implementation.createHTMLDocument
 // collapse sibling forms: the second one becomes a child of the first one.
 // Because of that, this security measure has to be disabled in Safari 8.
 // https://bugs.webkit.org/show_bug.cgi?id=137337
@@ -16932,7 +16932,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 	jQuery.fn[ method ] = function( val ) {
 		return access( this, function( elem, method, val ) {
 
-			// Coalesce documents and windows
+			// Coalesce Documents and windows
 			var win;
 			if ( isWindow( elem ) ) {
 				win = elem;
@@ -37275,7 +37275,7 @@ process.umask = function() { return 0; };
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -37289,20 +37289,20 @@ process.umask = function() { return 0; };
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -37334,7 +37334,7 @@ process.umask = function() { return 0; };
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -37346,7 +37346,7 @@ process.umask = function() { return 0; };
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -37358,12 +37358,12 @@ process.umask = function() { return 0; };
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -37374,7 +37374,7 @@ process.umask = function() { return 0; };
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -37383,11 +37383,11 @@ process.umask = function() { return 0; };
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/ 		
+/******/
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -37395,19 +37395,19 @@ process.umask = function() { return 0; };
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/ 		
+/******/
 /******/ 		// no chunk on demand loading
-/******/ 		
+/******/
 /******/ 		// no prefetching
-/******/ 		
+/******/
 /******/ 		// no preloaded
-/******/ 		
+/******/
 /******/ 		// no HMR
-/******/ 		
+/******/
 /******/ 		// no HMR manifest
-/******/ 		
+/******/
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
+/******/
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -37430,20 +37430,20 @@ process.umask = function() { return 0; };
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/ 		
+/******/
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+/******/
 /******/ })()
 ;

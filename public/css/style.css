@@ -20,3 +20,11 @@ legend.scheduler-border {
     min-width:100px;
     min-height:1em;
 }
+
+.text-blue{
+    color: #6a88d5 !important;
+}
+
+.background-blue{
+    background-color : #6a88d5 !important;
+}

@@ -18,6 +18,7 @@ class CreatePieceAPreparersTable extends Migration
             $table->foreignId('partie_id')->constrained('parties');
             $table->foreignId('ao_id')->constrained('aos');
             $table->string('nom_fichier');
+            $table->integer('selected')->default(0);
             $table->timestamps();
         });
     }

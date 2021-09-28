@@ -48,7 +48,8 @@
                             <h3 class="mb-30">Login</h3>
 
                             <form method="POST" action="http://localhost:8000/login">
-                                <input type="hidden" name="_token" value="yYWGki4fCbXtboBIU1uudaokgIA65w0EMUkFlQ4D">
+                                @csrf
+{{--                                <input type="hidden" name="_token" value="yYWGki4fCbXtboBIU1uudaokgIA65w0EMUkFlQ4D">--}}
                                 <div class="section-field mb-20">
                                     <label class="mb-10" for="name">Email*</label>
                                     <input id="email" type="email" class="form-control " name="email" value="" required="" autocomplete="email" autofocus="">

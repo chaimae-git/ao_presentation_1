@@ -22,12 +22,11 @@
                 <tbody>
                     @foreach($bus as $bu)
                         <tr>
-                            <td>{{$bu->id}}</td>
                             <td>{{$bu->nom}}</td>
                             <td>{{$bu->description}}</td>
                             <td>
-                                <a href="{{route('bus.editer', $bu)}}"><i class="fas fa-edit"></i></a>
-                                <a href="{{route('bus.editer', $bu)}}"><i class="fas fa-trash-alt"></i></a>
+                                <a href="javascript:void(0)" wire:click="openEditBuModal({{$bu->id}})"><i class="fas fa-edit"></i></a>
+                                <a href="javascript:void(0)" wire:click="deleteConfirm({{$bu->id}})"><i class="fas fa-trash-alt"></i></a>
                             </td>
 
                         </tr>
@@ -38,6 +37,7 @@
     </div>
 
     @include('modals.bus.ajouter')
+    @include('modals.bus.editer')
 </div>
 
 
@@ -53,11 +53,52 @@
             $("#addBuModal").find('span.error').html('');
             $("#addBuModal").find('form')[0].reset();
             $("#addBuModal").modal('hide');
-            alert('BU ajouté avec succée');
+            Swal.fire(
+                'Added!',
+                'BU has been Added.',
+                'success'
+            )
+        });
+
+        window.addEventListener('closeEditBuModal', function(e){
+            $("#editBuModal").find('span.error').html('');
+            $("#editBuModal").find('form')[0].reset();
+            $("#editBuModal").modal('hide');
+            Swal.fire(
+                'Updated!',
+                'BU has been Updated.',
+                'success'
+            )
         })
 
         window.addEventListener('openEditBuModal', function(e){
-            alert('hello');
+            $("#addBuModal").find('span.error').html('');
+            $("#editBuModal").modal('show');
+        });
+
+        window.addEventListener('swalConfirm', function(e){
+            swal.fire({
+                title:e.detail.title,
+                html:e.detail.html,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                allowOutsideClick:false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('delete', e.detail.id)
+                }
+            });
+        });
+
+        window.addEventListener('deleted', function(e){
+            Swal.fire(
+                'Deleted!',
+                'Bu has been deleted.',
+                'success'
+            )
         });
 
         $('#addBuModal').modal({backdrop:'static', keyboard:false, show:false});

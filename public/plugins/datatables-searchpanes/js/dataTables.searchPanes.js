@@ -1588,7 +1588,7 @@
          * Clear the selections of all of the panes
          */
         SearchPanes.prototype.clearSelections = function () {
-            // Load in all of the searchBoxes in the documents
+            // Load in all of the searchBoxes in the Documents
             var searches = this.dom.container.find(this.classes.search);
             // For each searchBox set the input text to be empty and then trigger
             //  an input on them so that they no longer filter the panes

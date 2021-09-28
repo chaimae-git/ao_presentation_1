@@ -21,7 +21,10 @@
         <!-- /.content-header -->
 
         <!--start of section content-->
-    @yield('content')
+        <div class="mx-2">
+            @yield('content')
+        </div>
+
     <!--end of section content-->
 
     </div>

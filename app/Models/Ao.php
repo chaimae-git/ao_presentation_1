@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Concurrent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Fichier;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Pays;
-use App\Models\ministere_de_tuelle;
+use App\Models\ministere_de_tutelle;
 use App\Models\Secteur_activite;
-use App\Models\Concurrent;
 use App\Models\Bu;
 use App\Models\Departement;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -34,8 +34,12 @@ class Ao extends Model
         return $this->belongsTo(Pays::class);
     }
 
-    public function ministere_de_tuelle():BelongsTo{
-        return $this->belongsTo(ministere_de_tuelle::class, 'ministere_id');
+    public function adjudication():BelongsTo{
+        return $this->belongsTo(Adjudication::class);
+    }
+
+    public function ministere_de_tutelle():BelongsTo{
+        return $this->belongsTo(ministere_de_tutelle::class, 'ministere_id');
     }
 
     public function secteur_activite():BelongsTo{
@@ -64,7 +68,7 @@ class Ao extends Model
     }
 
     public function critere():BelongsTo{
-        return $this->belongsTo(Critere_selection::class);
+        return $this->belongsTo(Critere_selection::class, 'critere_selection_id');
     }
 
     public function piece_a_preparers():HasMany{
@@ -73,5 +77,13 @@ class Ao extends Model
 
     public function locations():HasMany{
         return $this->hasMany(Location::class);
+    }
+
+    public function partenariats():BelongsToMany{
+        return $this->belongsToMany(Partenariat::class, 'ao_partenariat', 'appel_offre_id');
+    }
+
+    public function chef_de_fil():belongsTo{
+        return $this->belongsTo(Partenariat::class, 'chef_de_fil_id');
     }
 }

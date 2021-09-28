@@ -759,7 +759,7 @@ function _excelColWidth( data, col ) {
 
 
 /**
- * Convert XML documents in an object to strings
+ * Convert XML Documents in an object to strings
  * @param  {object} obj XLSX document object
  */
 function _xlsxToStrings( obj ) {
@@ -1398,7 +1398,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 	},
 
 	extension: '.xlsx',
-	
+
 	createEmptyCells: false
 } );
 

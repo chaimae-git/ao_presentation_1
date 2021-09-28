@@ -11,6 +11,9 @@ class Fichier extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+
     public function ao():BelongsTo{
         return $this->belongsTo(Ao::class);
     }

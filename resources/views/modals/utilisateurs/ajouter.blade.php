@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form wire:submit.prevent="save">
+                <form wire:submit.prevent="save" enctype="multipart/form-data">
                     @csrf
                     <div class="form py-2">
                         <div class="row">

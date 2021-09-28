@@ -12,6 +12,8 @@ class Departement extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function Bu():BelongsTo{
         return $this->belongsTo(Bu::class);
     }

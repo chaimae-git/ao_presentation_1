@@ -4,7 +4,7 @@
 // Glue code between CodeMirror and Tern.
 //
 // Create a CodeMirror.TernServer to wrap an actual Tern server,
-// register open documents (CodeMirror.Doc instances) with it, and
+// register open Documents (CodeMirror.Doc instances) with it, and
 // call its methods to activate the assisting functions that Tern
 // provides.
 //
@@ -16,7 +16,7 @@
 //   the project that haven't been loaded yet. Simply do c(null) to
 //   indicate that a file is not available.
 // * fileFilter: A function(value, docName, doc) that will be applied
-//   to documents before passing them on to Tern.
+//   to Documents before passing them on to Tern.
 // * switchToDoc: A function(name, doc) that should, when providing a
 //   multi-file view, switch the view or focus to the named file.
 // * showError: A function(editor, message) that can be used to
